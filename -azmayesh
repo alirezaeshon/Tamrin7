@@ -1,0 +1,85 @@
+List<Student> students = new List<Student>();
+
+StreamReader sr = new
+    StreamReader(@"C:\a.txt");
+
+while (!sr.EndOfStream)
+{
+
+    string line = sr.ReadLine();
+    Student student = new Student();
+
+    student.FName = line.Split(',')[0];
+    student.LName = line.Split(',')[1];
+    student.Pishrafte1Mark = Convert.ToDouble(line.Split(',')[2]);
+    student.Pishrafte2Mark = Convert.ToDouble(line.Split(',')[3]);
+    student.SheyGaraiyMark = Convert.ToDouble(line.Split(',')[4]);
+    student.SistemAmelMark = Convert.ToDouble(line.Split(',')[5]);
+    student.AlgoritmMark = Convert.ToDouble(line.Split(',')[6]);
+    student.TafsirMark = Convert.ToDouble(line.Split(',')[7]);
+    student.RiaziMark = Convert.ToDouble(line.Split(',')[8]);
+    student.KargahMark = Convert.ToDouble(line.Split(',')[9]);
+    student.EngelisiMark = Convert.ToDouble(line.Split(',')[10]);
+    student.VarzeshMark = Convert.ToDouble(line.Split(',')[11]);
+
+
+    students.Add(student);
+}
+foreach (var student in students)
+{
+    Console.WriteLine(student.FName());
+    Console.WriteLine(student.LName());
+    Console.WriteLine( "Pishrafte1Mark: " + student.Pishrafte1Mark());
+    Console.WriteLine( "Pishrafte2Mark: " + student.Pishrafte2Mark());
+    Console.WriteLine( "SheyGaraiyMark: " + student.SheyGaraiyMark());
+    Console.WriteLine( "SistemAmelMark: " + student.SistemAmelMark());
+    Console.WriteLine( "AlgoritmMark: " + student.AlgoritmMark());
+    Console.WriteLine( "TafsirMark: " + student.TafsirMark());
+    Console.WriteLine( "RiaziMark: " + student.RiaziMark());
+    Console.WriteLine( "KargahMark: " + student.KargahMark());
+    Console.WriteLine( "EngelisiMark: " + student.EngelisiMark());
+    Console.WriteLine( "VarzeshMark: " + student.VarzeshMark());
+    Console.WriteLine( "TotalAvg: " + student.TotalAvg());
+    Console.WriteLine( "Avg1: " + student.Avg1());
+    Console.WriteLine( "Avg2: " + student.Avg2());
+    Console.WriteLine("****************************************");
+}
+class Student
+{
+    public string FName { get; set; }
+    public string LName { get; set; }
+    public double Pishrafte1Mark { get; set; }
+    public double Pishrafte2Mark { get; set; }
+    public double SheyGaraiyMark { get; set; }
+    public double SistemAmelMark { get; set; }
+    public double AlgoritmMark { get; set; }
+    public double TafsirMark { get; set; }
+    public double RiaziMark { get; set; }
+    public double KargahMark { get; set; }
+    public double EngelisiMark { get; set; }
+    public double VarzeshMark { get; set; }
+
+    
+    public double TotalAvg()
+
+    {
+     return ((Pishrafte1Mark * 3) + (Pishrafte2Mark * 3) + (SheyGaraiyMark * 3) + (SistemAmelMark * 3) + (AlgoritmMark * 3) + (TafsirMark) + (RiaziMark * 2) + (KargahMark) + (EngelisiMark * 2) + (VarzeshMark * 2)) / 23;
+    }
+    public double Avg1()
+
+    {
+        return ((SistemAmelMark) + (AlgoritmMark)) / 2;
+    }
+    public double Avg2()
+
+    {
+        return ((Pishrafte1Mark) + (Pishrafte2Mark) + (SheyGaraiyMark)) / 3;
+    }
+
+
+
+
+
+
+
+}
